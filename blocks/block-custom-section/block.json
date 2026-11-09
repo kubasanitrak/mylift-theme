@@ -1,0 +1,17 @@
+{
+    "name": "acf/custom-section",
+    "title": "MYLIFT Custom Section (ACF Block)",
+    "description": "Set background, animation, add to scroll menu.",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='M0 0v24h36V0H0Zm34 22H2V2h32v20Zm27.98 20-4.44-4.44v1.41L26.57 20h1.41zM30.81 20l-7.27-7.27v1.41L29.39 20h1.42zM25.15 20l-1.61-1.62v1.42l.2.2h1.41zM32 18.36 23.54 9.9v1.41L32 19.78v-1.42zM32 7.05 28.95 4h-1.41L32 8.46V7.05zM32 15.54l-8.46-8.47v1.42L32 16.95v-1.41zM32 4.22 31.78 4h-1.42L32 5.64V4.22zM32 9.88 26.12 4h-1.41L32 11.29V9.88zM32 12.71l-8.46-8.47v1.42L32 14.12v-1.41zM16.05 4 4 16.05v1.41L17.46 4h-1.41zM20.29 4h-1.41L4 18.88V20h.29l16-16zM13.22 4 4 13.22v1.42L14.64 4h-1.42zM10.39 4 4 10.39v1.42L11.81 4h-1.42zM4.74 4 4 4.74v1.41L6.15 4H4.74zM7.57 4 4 7.57v1.41L8.98 4H7.57zM7.12 20 21.54 5.59V4.17L5.71 20h1.41zM18.43 20l3.11-3.1v-1.41L17.02 20h1.41zM21.26 20l.28-.27v-1.42L19.85 20h1.41zM12.78 20l8.76-8.76V9.83L11.36 20h1.42zM9.95 20 21.54 8.41V7l-13 13h1.41zM15.61 20l5.93-5.93v-1.41L14.19 20h1.42z'/></svg>",
+    "keywords": ["section", "container"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "anchor": true,
+        "jsx": true,
+        "color": true
+    }
+}

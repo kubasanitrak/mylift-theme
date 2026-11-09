@@ -1,0 +1,98 @@
+.menu {
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+
+	
+	padding-top: 0;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	transition: all 0.65s;
+	background-color: var(--color-bg);
+	height: 0;
+	
+	@include mq(mq-land) {
+		flex-direction: row;
+		justify-content: center;
+		// position: relative;
+		// height: calc(#{$fz-NAV} + #{$nav-GAP} * 0.6 );
+// background-color: pink;
+		align-items: center;
+	}
+	@include mq(mq-iPad-land) {
+	}
+
+
+	.nav-list {
+		font-size: $fz-NAV;
+		display: flex;
+		color: var(--color-contrast-high);
+		gap: var(--gap);
+		flex-direction: column;
+		width: 100%;
+		@include mq(mq-land) {
+			width: auto;
+			flex-direction: row;
+			justify-content: center;
+		}
+	
+		li {
+			position: relative;
+			// padding: $nav-GAP 0;
+			padding: calc(#{$fz-NAV} * .25) 0;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+
+			@include mq(mq-land) {
+				width: auto;
+			}
+
+			a {
+				line-height: 100%;
+				position: relative;
+				z-index: 100;
+			}
+		}	
+		&.main-nav-list	{
+			@include mq(mq-land) {
+				margin-right: calc(var(--pad-R) * 3);
+			}
+		}
+		&.nav-list--lang {
+			flex-direction: row;
+			justify-content: center;
+			margin-top: calc(var(--touch-S) * .5);
+			@include mq(mq-land) {
+				margin-top: 0;
+			}
+			// align-items: flex-start;
+			li {
+				width: var(--touch-S);
+				@include mq(mq-land) {
+					width: auto;
+				}
+				display: inline-flex;
+				&:hover,
+				&:active,
+				&:focus,
+				&.current-lang-item {
+					// color: var(--color-highlight);
+				}
+			}
+		}
+	}
+}
+
+
+.menu li:hover,
+.menu li:focus,
+.menu li.current {
+	cursor: pointer;
+}

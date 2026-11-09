@@ -1,0 +1,360 @@
+/* MENU RELATED TRANSITIONS */
+
+.header {
+	transform: translate(0, 0);
+	transition: transform $global-transistion-duration 0.0s ease-out;
+}
+	
+.menu li {
+	opacity: 0;
+	
+	transition: 
+		/*property	duration	delay */
+		opacity		0.5s 0.3s;
+		
+	@include mq(mq-L-UP) {
+		// opacity: 1;
+	}
+		
+		// @include uni-offset(7, 0.25, opacity, 0.15);
+}
+.nav-switch:checked ~ label ~ .menu li {
+	opacity: 1;
+	// transition-delay: $global-transistion-duration;
+	// @include uni-offset(6, 0.85, opacity, 0.25);
+}
+
+
+.hamburger {
+	transition: background $global-transistion-duration;
+}
+.hamburger span {
+	transition: background 0s $global-transistion-duration;
+	&::before,
+	&::after {
+		transition-duration: $global-transistion-duration, $global-transistion-duration; 
+		transition-delay: $global-transistion-duration, 0s;
+	}
+}
+.hamburger span::before {
+	transition-property: top, transform;
+}
+.hamburger span::after{
+	transition-property: bottom, transform;
+}
+.nav-switch:checked ~ label span::before,
+.nav-switch:checked ~ label span::after {
+	transition-delay: $global-transistion-duration, $global-transistion-duration;
+}
+
+.js {
+	.scrolled-OFF {
+		transform: translate(0, calc(var(--header-H) * -1));
+		.logo {
+			transition-delay: 0.75s;
+		}
+		.hamburger span {
+			transition-delay: 0.4s;
+		}
+		.logo,
+		.hamburger span,
+		.menu {
+			transform: translate(0, calc(var(--header-H) * -1));
+		}
+	}
+	.header {
+		--color-bg: transparent;
+		--color-contrast-high: var(--white);
+		@include mq(mq-iP-land) {
+			--color-bg: var(--MYLIFT-blue);
+		}
+		.nav-list--lang {
+			color: hsla(var(--MYLIFT-white-hsl), .35);
+			transition: color #{$dur}s ease-in-out;
+			li {
+				&:hover,
+				&:active,
+				&:focus,
+				&.current-lang-item {
+					color: hsla(var(--MYLIFT-white-hsl), 1.0);
+				}
+			}
+		}
+		&.scrolled {
+			--color-bg: var(--white);
+			--color-contrast-high: var(--MYLIFT-blue);
+			@include mq(mq-iP-land) {
+				// --color-bg: var(--white);
+			}
+			.nav-list--lang {
+				
+				color: hsla(var(--MYLIFT-blue-hsl), .35);
+				li {
+					&:hover,
+					&:active,
+					&:focus,
+					&.current-lang-item {
+						color: hsla(var(--MYLIFT-blue-hsl), 1.0);
+					}
+				}
+			}
+		}
+		.logo svg {
+			fill: var(--color-contrast-high);
+		}
+	}
+	
+	.scroll-trigger {
+
+		&--linethrough,
+		&--faq {
+			&::before {
+				display: none;
+				@include mq(mq-land) {
+					display: block;
+					transition: transform calc(#{$global-transistion-duration} * 2) 0.0s $cubic4;
+					transform: scaleY(0);
+				}
+			}
+			&.inView {
+				&::before {
+					@include mq(mq-land) {
+						transform: scaleY(1);
+					}
+				}
+			}
+		}
+		
+
+		&--faq {
+			> * {
+				opacity: 0;
+				transform: translateY($prlx-dist);
+				@include css-paralax(2, .75);
+			}
+			&.inView {
+				> * {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+		&--news {
+			.news-list--anim::before {
+				display: none;
+
+				@include mq(mq-land) {
+					transition: transform calc(#{$global-transistion-duration} * 2) 0.0s $cubic4;
+					transform: scaleX(0);
+				}
+			}
+			&.inView {
+				.news-list--anim::before {
+					@include mq(mq-land) {
+						transform: scaleX(1);
+					}
+				}
+			}
+		}
+		&--gallery {}
+		&--contact {
+			.company-legal,
+			.even-columns--item {
+				opacity: 0;
+				transform: translateY($prlx-dist);
+				@include css-paralax(10, .875); //($children:1, $duration: 0.5, $offset: 0.25, $startdelay: 0)
+			}
+			// .company-legal {
+			// 	transition:
+			// 		opacity 0.875s 1.75s ease-in-out,
+			// 		transform 0.875s 1.75s ease-in-out;
+
+			// }
+			&.inView {
+				.company-legal,
+				.even-columns--item {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+		&--morph {
+			.shape-morph::before {
+				transition: clip-path calc(#{$global-transistion-duration} * 2) 0.0s $cubic4;
+				clip-path: polygon(100% 0, 0 0, 50% 0);
+			}
+			&::after {
+				transform-origin: center center;
+				transform:  translate(-80%, 10%) scale(0.0);
+				@include mq(mq-land) {
+					transform:  translate(-120%, 50%) scale(0.0);
+				}
+				transition: transform calc(#{$global-transistion-duration} * 3) 0.0s ease-in-out;
+			}
+			.gallery-grid {
+				transition: 
+					transform $intro-t*2 0.0s ease-in-out;
+				transform: translateX(50vw);
+			}
+			.slide-in {
+				opacity: 0;
+				transform: translateX($prlx-dist);
+				@include css-paralax(10, .5, .35, .75); 
+			} 
+			.slide-in--final {}
+			&.inView {
+				.shape-morph::before {
+					clip-path: polygon(100% 0, 0 0, 50% 100%);
+				}	
+				&::after {
+					transform: translate(-50%, -10vmin) scale(1.0);
+					@include mq(mq-land) {
+						transform: translate(-50%, -5vmin) scale(1.0);
+					}
+				}
+				.gallery-grid {
+					transform: translateX(0);
+				}
+				.slide-in {
+					opacity: 1;
+					transform: translateX(0);
+				} 
+				.slide-in--final {
+					transition-delay: $intro-t*4;
+				}
+
+			}
+
+		}
+	}
+	--intro-delay: 0.5s;
+	--stagger-t: .25s;
+
+	.loading {
+
+		
+		.site-title {
+			opacity: 0;
+			&:nth-of-type(3),
+			&:nth-of-type(4),
+			.doubled-line {
+				transform: translateY(0);
+			}
+		}
+		.site-subtitle {
+			opacity: 0;
+			transform: translateY($prlx-dist);
+		}
+	}
+
+	.site-title,
+	.doubled-line {
+		transition: 
+			/*property	duration	delay */
+			opacity		$intro-t	0.0s	ease-in-out,
+			transform	$intro-t*3	0.0s	$cubic4;
+	}
+
+	.site-subtitle {
+		transition: 
+			/*property	duration	delay */
+			opacity		$intro-t	calc(var(--intro-delay) * 4)	ease-in-out,
+			transform	$intro-t*2	calc(var(--intro-delay) * 4)	ease-in-out;
+	}
+
+	.site-title {
+		opacity: 1;
+
+		&:nth-of-type(3),
+		&:nth-of-type(4),
+		.doubled-line {
+			transform: translateY(.15em);
+		}
+		&:nth-of-type(1) {
+			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 1) ), 0.0s; //opacity, transform
+		}
+		&:nth-of-type(2),
+		.doubled-line {
+			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 2) ), calc(var(--intro-delay) * 4); //opacity, transform
+		}
+		&:nth-of-type(3) {
+			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 3) ), calc(var(--intro-delay) * 4); //opacity, transform
+		}
+		&:nth-of-type(4) {
+			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 4) ), calc(var(--intro-delay) * 4); //opacity, transform
+		}
+	}
+	
+	.site-subtitle {
+		transform: translateY(.3em);
+	}
+
+
+	.sos-phonelink {
+		transition: transform calc(#{$global-transistion-duration} * .3) 0.0s ease-out;
+		transform: translateX(calc(var(--icon-S) * -3));
+		&::before {
+			transition: transform calc(#{$global-transistion-duration} * 0.5) 0.0s $cubic;
+			transform: scale(0.0);
+			transform-origin: center center;
+		}
+		span {
+			text-indent: calc(var(--paralax-X) * -1);
+			opacity: 0;
+			transition:
+				text-indent calc(#{$global-transistion-duration} * 1.25) 0.0s $cubic,
+				opacity calc(#{$global-transistion-duration} * .5) 0.0s ease-out,
+				margin calc(#{$global-transistion-duration} * .5) 0.0s ease-out;
+		}
+	}
+	.loaded {
+		.sos-phonelink {
+			transform: translateX(0);
+			transition-delay: calc( var(--intro-delay) * 1.00);
+			&::before {
+				transform: scale(1.0);
+				transition-delay: calc(#{$global-transistion-duration} * .25 + var(--intro-delay));
+			}
+			span {
+				text-indent: 0;
+				opacity: 1;
+				margin-left: calc(var(--gap) * .5);
+				transition-delay: 
+					calc(#{$global-transistion-duration} *  0.25 + var(--intro-delay)), 
+					calc(#{$global-transistion-duration} * .85 + var(--intro-delay)),
+					calc(#{$global-transistion-duration} * .5 + var(--intro-delay));
+				&:first-of-type {
+					margin-right: calc(var(--gap) * .75);
+					@include mq(mq-land) {
+						margin-right: 0;
+					}
+				}
+				&:last-of-type {
+					@include mq(mq-land) {
+						margin-right: calc(var(--gap) * .75);
+					}
+				}
+			}
+			&.scroll-minified {
+				// gap: 0;
+				span {
+					text-indent: calc(var(--paralax-X) * -1);
+					opacity: 0;
+					margin-left: 0;
+					transition:
+						text-indent calc(#{$global-transistion-duration} * 5.25) calc(#{$global-transistion-duration} *  0.25) $cubic,
+						opacity calc(#{$global-transistion-duration} * .25) 0.0s ease-out,
+						margin calc(#{$global-transistion-duration} * .5) 0.0s ease-out;
+					&:first-of-type {
+						margin-right: 0;
+					}
+					&:last-of-type {
+						@include mq(mq-land) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

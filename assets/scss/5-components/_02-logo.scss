@@ -1,0 +1,15 @@
+.logo-container {
+	// height: var(--logo-H);
+	
+	position: absolute;
+	top: var(--pad-T);
+	left: var(--pad-R);
+	z-index: 50;
+}
+
+.logo {
+	width: calc(var(--logo-H) * var(--logo-ratio));
+	svg {
+		fill: var(--color-contrast-high);
+	}
+}

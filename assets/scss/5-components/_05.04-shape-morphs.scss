@@ -1,0 +1,99 @@
+.shape-morph,
+.shape-3D {
+	position: relative;
+	&::before,
+	&::after {
+		content: "";
+		@include mq(mq-land) {
+			width: calc(100% + (var(--pad-R) * 4.95));
+			left: calc(var(--pad-R) * -2.45);
+		}
+		position: absolute;
+		// display: block;
+	}
+}
+.shape-morph {
+	position: relative;
+	&::before,
+	&::after {
+		display: block;
+		width: 100%;
+		height: calc(var(--pad-R) * 5);
+		@include mq(mq-land) {
+			width: calc(100% + (var(--pad-R) * 4.95));
+			height: calc(var(--pad-R) * 10);
+		}
+	}
+	&::before {
+		background-color: var(--color-highlight);
+		z-index: 2;
+		bottom: 0;
+		@include mq(mq-land) {
+			bottom: 0px;
+		}
+	}
+	&::after {
+		bottom: 0;
+		background-color: var(--white);
+		z-index: 0;
+	}
+}
+.shape-3D {
+	padding-bottom: 80%;
+	// padding-left: var(--pad-R);
+	@include mq(mq-land) {
+		padding-bottom: 0;
+		// padding-left: 0;
+	}
+	.section-title {
+		margin-left: calc(var(--pad-R) * .75);
+		@include mq(mq-land) {
+			margin-left: 0;
+		}
+	}
+	&::before {
+		display: block;
+		height: 0;
+		top: calc(var(--pad-R) * -.98);
+		border-left: calc(var(--pad-R) * 1.0) solid transparent;
+		border-bottom: calc(var(--pad-R) * 1.0) solid var(--color-highlight);
+		width: 100%;
+		@include mq(mq-land) {
+			top: calc(var(--pad-R) * -2.40);
+			width: calc(100% + (var(--pad-R) * 4.95));
+			border-left: calc(var(--pad-R) * 2.5) solid transparent;
+			border-bottom: calc(var(--pad-R) * 2.5) solid var(--color-highlight);
+		}
+	}
+}
+.scroll-trigger--linethrough,
+.scroll-trigger--faq {
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		width: $line-THICK;
+		background-color: var(--color-highlight);
+		transform-origin: top center;
+	}
+}
+.scroll-trigger--linethrough {
+	position: relative;
+	&::before {
+		top: 0;
+		height: 50vh;
+		left: calc( ( 100% - #{$line-THICK} ) * .5);
+		z-index: 10;
+	}
+}
+.scroll-trigger--faq {
+	&::before {
+		// top: -15%;
+		top: calc(var(--pad-T) * var(--faq-int) * -1);
+		top: calc( (var(--pad-T) * 1.57) * -1);
+		height: 225%;
+		left: calc( #{$line-THICK} * -.5);
+		@include mq(mq-land) {
+		}
+	}
+}

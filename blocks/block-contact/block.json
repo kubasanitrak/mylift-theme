@@ -1,0 +1,17 @@
+{
+    "name": "acf/contact",
+    "title": "MYLIFT Contact (ACF Block)",
+    "description": "Company contact rows. Shared data comes from MYLIFT settings; labels are edited here per language.",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='M2 6h32v24H2V6zm2 2v4h28V8H4zm0 6v14h28V14H4z'/><path d='M6 16h10v2H6v-2zm0 4h14v2H6v-2zm0 4h8v2H6v-2z'/></svg>",
+    "keywords": ["contact", "kontakt", "address", "phone"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "anchor": true,
+        "jsx": false,
+        "align": false
+    }
+}

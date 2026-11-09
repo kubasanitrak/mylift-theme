@@ -1,0 +1,144 @@
+.clearfix { 
+	zoom: 1;
+	&:before, &:after { 
+		content: ""; display: block; height: 0; visibility: hidden; 
+	}
+	&:after { 
+		clear: both; 
+	}
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.list-none >li {
+	list-style: none;
+}
+
+.floating-li>li {
+	display: inline;
+}
+
+.taR {
+	text-align: right;
+} 
+.taC {
+	text-align: center;
+}
+.taL {
+	text-align: left;
+}
+.w100{
+	width: 100%;
+}
+.h100{
+	height: 100%;
+}
+.abs{
+	position: absolute;
+}
+.fix{
+	position: fixed;
+}
+.rel{
+	position: relative;
+}
+
+.abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.caps {
+	text-transform: uppercase;
+}
+
+.sticky {
+	position: sticky;
+	&-top {
+		top: 0;
+	}
+}
+.square {
+	aspect-ratio: 1 / 1 ;
+}
+.circ {
+	border-radius: 50%;
+}
+.flexcols {
+	display: flex;
+	flex-wrap: wrap;
+	.flexcols-item {
+		&--even_W {
+			width: clamp(5em, 6ch, 100px);
+		}
+	}
+}
+.valign-center {
+	justify-content: center;
+}
+.fill-color-contrast-high {
+	fill: var(--color-contrast-high);
+}
+.border-T,
+.border-B {
+	position: relative;
+}
+.border-T::before,
+.border-B::after {
+	content: "";
+	display: block;
+	background-color: var(--color-contrast-high);
+	position: absolute;
+	left: 0;
+	transform-origin: center;
+	// width: calc(100% + (var(--padL) * 2));
+	width: 100%;
+	height: $line-THICK;
+}
+.border-T::before {
+	top: 0;
+}
+.border-B::after {
+	bottom: 0;
+}
+.sticky {
+	position: sticky;
+	&-top {
+		top: 0;
+	}
+	&-bottom {
+		bottom: 0;
+	}
+}
+.toned {
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		// background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 20.06%), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%);
+		background: linear-gradient(180deg, hsla(240, 100%, 50%, .80) 0%, hsla(240, 100%, 50%, 0.75) 100.00%);
+
+	}
+}
+.abs-link {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}

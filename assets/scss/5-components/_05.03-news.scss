@@ -1,0 +1,31 @@
+
+.news-list { 
+	&--anim {
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			height: $line-THICK;
+			width: 100%;
+			right: 0;
+			background-color: var(--color-highlight);
+			top: calc(var(--pad-R) * 2.5);
+			transform-origin: top right;
+		}
+	}
+	&--item {
+		&:first-of-type {
+			margin-block-start: calc(var(--pad-T) * 1.675);
+		}
+		&_header {
+			display: flex;
+			flex-direction: column;
+		}
+		&_row {
+			width: 100%;
+			display: flex;
+			gap: var(--gap);
+		}
+		&_content {}
+	}
+}

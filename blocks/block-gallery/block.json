@@ -1,0 +1,20 @@
+{
+    "name": "acf/gallery",
+    "title": "MYLIFT gallery (ACF Block)",
+    "description": "Gallery draggable",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='m35.305 17.486-2.495 2.487-.502-.502 1.823-1.725c-.195.056-.535.089-.924.089H30v-.697h3.207c.39 0 .73.033.924.097l-1.823-1.733.502-.502 2.495 2.486ZM0 17.486l2.495 2.487.502-.502-1.823-1.725c.195.056.535.089.924.089h3.207v-.697H2.098c-.389 0-.73.033-.924.097l1.823-1.733L2.495 15 0 17.486ZM7 9h23v2H7V9ZM7 13h21v2H7v-2ZM7 17h18v2H7v-2ZM7 25h18v2H7v-2ZM7 21h23v2H7v-2Z'/></svg>",
+    "keywords": ["image-gallery", "gallery"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        }
+    },
+    "align": "full"
+}

@@ -1,0 +1,13 @@
+{
+    "name": "acf/news-list",
+    "title": "MYLIFT News List (ACF Block)",
+    "description": "Custom list of news.",
+    "category": "formatting",
+    "icon": "<svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' viewBox='0 0 36 36'> <path d='M0 11h16V0H0v11Zm2-9h12v7H2V2Z'/> <path d='M8.05 6.74 6 4 3 8h9L9.5 5 8.05 6.74z'/> <circle cx='12' cy='4' r='1'/> <path d='M0 13h14v2H0zM20 0v11h16V0H20Zm14 9H22V2h12v7Z'/> <path d='M24 8h9l-3-4-2.05 2.74L26.5 5 24 8z'/> <circle cx='24' cy='4' r='1'/> <path d='M20 13h11v2H20zM0 31h11v2H0zM0 29h16V18H0v11Zm2-9h12v7H2v-7Z'/> <path d='M9.05 24.74 7 22l-3 4h9l-2.5-3-1.45 1.74z'/> <circle cx='4' cy='22' r='1'/> <path d='M20 31h13v2H20zM20 29h16V18H20v11Zm2-9h12v7H22v-7Z'/> <path d='M26.95 24.74 25.5 23 23 26h9l-3-4-2.05 2.74z'/> <circle cx='32' cy='22' r='1'/> </svg>",
+    "keywords": ["news", "novinky"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "align": "full"
+}

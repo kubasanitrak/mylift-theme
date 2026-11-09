@@ -1,0 +1,199 @@
+.accord-item {
+	position: relative;
+	&:not(:first-of-type) {
+		border-top: $line-THICK solid var(--gray1);
+	}
+	&--header {
+		padding-block: var(--pad-T) calc(var(--pad-T) * 1.0);
+		@include mq(mq-land) {
+			padding-block-start: calc(var(--pad-T) * .65);			
+		}
+		display: flex;
+		// align-items: center;
+		position: relative;		
+		gap: calc(var(--pad-T) * .15);
+	}
+	&--header,
+	&--content {
+		// padding-inline: var(--pad-R);
+	}
+	&--content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--pad-T) calc(var(--fscreen-T) * 3.2);
+		@include mq(mq-land) {
+			// flex-direction: row;
+			align-items: flex-start;
+			gap: var(--gap);
+			justify-content: space-between;
+		}
+		> *:last-child {
+			margin-block-end: calc(var(--pad-T) * 2.5);
+		}
+		&_row {
+
+		}
+		&_cols {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+	&--title {
+		line-height: 1.15em;
+	}
+	&--label {
+		display: inline-flex;
+		@include mq(mq-land) {
+			// color: var(--color-bg);
+			// margin-right: calc(var(--ham-W) * 1.5);
+		}
+	}
+	&--switch {}
+	&--content_caption {
+		// p {
+		// 	line-height: 1.5em;
+		// }
+		// p + p {
+		// 	margin-top: 1.5em;
+		// }
+		// button {
+		// 	margin-top: calc(var(--fscreen-T) * 2);
+		// }
+		// @include mq(mq-land) {
+		// 	margin-block-end: var(--pad-R);
+		// 	flex-basis: calc(66.66666667% - (var(--gap) * .5));
+		// 	padding-inline-end: calc(var(--pad-R) * 4);
+		// }
+	}
+	&--content_img {
+		// display: flex;
+		// // aspect-ratio: 36 / 27;
+		// border-radius: $img-RADIUS;
+		// overflow: hidden;
+		// margin-block-end: var(--pad-R);
+		// img {
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	object-fit: cover;
+		// }
+		// @include mq(mq-land) {
+		// 	flex-basis: calc(33.33333333% - (var(--gap) * .5));
+		// }
+	}
+}
+
+// .accord-item:has(.accord-item--switch:hover) {
+// 	.accord-item--header {
+// 			transition: 
+// 				background-color #{$dur}s #{$dur}s,
+// 				color #{$dur}s #{$dur}s;
+
+// 			background-color: var(--color-contrast-high);
+// 			color: var(--color-bg);
+// 	}
+// }
+.accord-item:has(.accord-item--input:checked) {
+	.news-list--item_readmore {
+		transition-delay: 0.0s, 0.0s;
+		// ROTATE ARROW ICON
+	}
+}
+
+.accord-item--switch {
+	display: block;
+	@include mq(mq-land) {
+	}
+	overflow: hidden;
+	font-size: 0;
+	text-indent: -9999px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	max-height: calc( (#{$fz-H5} * 3.2) + (#{$fz-PLAIN} * 1.3) + var(--pad-T) );
+	
+	@include mq(mq-land) {
+		max-height: calc((#{$fz-H5} * 3.2) + (#{$fz-PLAIN} * 1.3) + (var(--pad-T) * .65));
+	}
+	z-index: 10;
+
+// background: hsla(155, 50%, 33%, .15);
+	// span {
+	// 	display: block;
+	// 	position: absolute;
+	// 	top: calc(var(--pad-R) * .5);
+	// 	// transform: translateY(-50%);
+	// 	right: var(--pad-R);
+	// 	border-radius: 50%;
+
+	// 	width: var(--ham-W);
+	// 	height: var(--ham-W);
+	// 	@include mq(mq-land) {
+	// 		top: calc((var(--fscreen-T) * 1.65) + (var(--ham-W) * .25));
+	// 	}
+	// 	background: var(--color-bg);
+	// 	// background: hsla(155, 50%, 33%, .35);
+	// 	z-index: 1;
+		
+	// 	&::before,
+	// 	&::after {
+	// 		position: absolute;
+	// 		display: block;
+	// 		left: 50%;
+	// 		width: var(--plus-S);
+	// 		height: $line-THICK;
+	// 		background-color: $ham-BGR;
+	// 		content: "";
+	// 		z-index: 2;
+	// 		transform-origin: center;
+	// 		top: 50%;
+	// 	}
+	// 	&::before {
+	// 		transform: translate(-50%, -50%);
+	// 	}
+	// 	&::after {
+	// 		transform: translate(-50%, -50%) rotate(90deg);
+	// 	}
+	// }
+}
+
+// .accord-item--switch span {
+// 	&::before,
+// 	&::after {
+// 		transition: transform		$global-transistion-duration		0.0s;
+// 	}
+// }
+.accord-item--input:checked {
+	// ~ .accord-item--switch span {
+	// 	&::before {}
+	// 	&::after {
+	// 			transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+	// 	}
+	// }
+}
+
+.accord-item--input {
+	& ~ .accord-item--switch ~ .accord-item--content {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height	#{$dur * 2}s 0.0s;
+		// transition-duration: #{$dur * 2}s;
+		@include mq(mq-land) {
+		}
+	}
+	&:checked ~ .accord-item--switch ~ .accord-item--content {
+		max-height: 200dvh;
+		transition-duration: #{$dur * 4}s;
+		
+		@include mq(mq-land) {
+			max-height: 150dvh;
+		}
+	}
+}
+
+.accord-item--header_row {
+
+}

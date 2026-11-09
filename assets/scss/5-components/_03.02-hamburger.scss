@@ -1,0 +1,78 @@
+.nav-switch,
+.nav-checkbox { display: none }
+
+.hamburger {
+	display: block;
+	position: absolute;
+	top: var(--pad-T);
+	right: 0;
+	z-index: 2;
+	overflow: hidden;
+	padding: 0;
+	width: $ham-W;
+	height: $ham-H;
+	font-size: 0;
+	text-indent: -9999px;
+	cursor: pointer;
+	
+	background-color: transparent;
+}
+
+.hamburger span {
+	
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate(-50%, -50%);
+
+	&,	
+	&::before,
+	&::after {
+		position: absolute;
+		display: block;
+		width: var(--dot-R);
+		height: var(--dot-R);
+		border-radius: 50%;
+		background-color: var(--color-contrast-high);
+	}
+	&::before,
+	&::after {
+		content: "";
+		z-index: 2;
+		left: 0;
+	}
+}
+
+.hamburger span::before {
+	top: -$ham-BAR_STROKE - $ham-BAR_SPACE;
+}
+
+.hamburger span::after{
+	bottom: -$ham-BAR_STROKE - $ham-BAR_SPACE;
+}
+
+.nav-switch:checked ~ label span {
+	background: none;
+}
+.nav-switch:checked ~ label span::before {
+	top: 0;
+}
+.nav-switch:checked ~ label span::after {
+	bottom: 0;
+}
+
+.nav-switch:checked ~ label ~ .menu {
+	padding-top: calc( (#{$fz-NAV} * 2.0));
+	cursor: pointer;
+	height: calc( (#{$fz-NAV} + #{$nav-GAP} * 2) * 7); //3 = NUMBER OF .menu > li ITEMS
+	
+	@include mq(mq-land) {
+		padding-top: 0;
+		height: calc((var(--logo-H)) + (var(--pad-T) * 2.0) );
+	}
+	@include mq(mq-iPad-land) {
+	}
+}
+
+
+

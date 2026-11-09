@@ -1,0 +1,39 @@
+body * {
+	font-family: 'FF-Reg';
+	&.strong {
+		font-family: 'FF-Med';
+	}
+	font-weight: normal;
+	font-style: normal;
+}
+
+p, dl {
+	@include mq(mq-S) {}
+}
+
+h1, h2, h3, h4, h5, h6, p, dt, dl, dd, sup, sub, ul, a {
+	-webkit-font-smoothing: antialiased; /* Chrome, Safari */
+	-moz-osx-font-smoothing: grayscale; /* Firefox */
+	    
+	-moz-font-feature-settings:    "kern" 1; 
+	-ms-font-feature-settings:     "kern" 1; 
+	-o-font-feature-settings:      "kern" 1; 
+	-webkit-font-feature-settings: "kern" 1; 
+	font-feature-settings:         "kern" 1;
+	// font-kerning: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+	overflow-wrap: break-word;
+}
+
+.plain {
+	font-size: $fz-PLAIN;
+}
+.minor {
+	font-size: $fz-MINOR;
+}
